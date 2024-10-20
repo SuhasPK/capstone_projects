@@ -1,0 +1,50 @@
+project:
+  type: website
+
+website:
+  title: "GDA Project"
+  navbar:
+    tools:
+      - icon: github
+        href: https://github.com/SuhasPK
+
+    left:
+      - href: index.qmd
+        text: Home
+      - href: project_details.qmd
+        text: Project_details
+      - href: sql_page.qmd
+        text: SQL
+      - href: r_page.qmd 
+        text: R
+      - href: dashboard_page.qmd
+        text: Dashboards
+      
+  
+  
+  page-footer: 
+    center: 
+      - text: "© Suhas. P. K. 2024 "
+      
+  cookie-consent: 
+    type: express
+    style: interstitial
+    palette: dark
+    language: english
+      
+      
+
+error: true
+  # Page for handling errors
+  #text: "Page not found. Go back to the [Home](/)."
+
+
+format:
+  html:
+    theme: cyborg
+    css: styles.css
+    page-layout: full
+    smooth-scroll: true
+
+editor: visual
+

@@ -1,0 +1,206 @@
+/* css styles */
+/* General page styles */
+body {
+    background-color: black;  /* Cyborg dark background */
+    color: white;             /* Light text color for contrast */
+    font-family: 'Courier New', Courier, monospace;  /* Typewriter-style font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for overall layout */
+.container {
+    max-width: 1200px;  /* Limits container width for larger screens */
+    margin: 0 auto;     /* Centers content */
+    padding: 15px;
+}
+
+/* Headers and titles */
+h1, h2, h3, h4, h5, h6 {
+    color: #00e676;  /* Bright neon green from Pixl theme */
+    font-family: 'Courier New', Courier, monospace;  /* Typewriter-style font */
+    text-transform: uppercase;  /* Cyborg's bold heading style */
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #222;  /* Dark background from Cyborg theme */
+    border-bottom: 2px solid #00e676;  /* Pixl neon green border */
+    padding: 10px 15px;
+}
+
+.navbar a {
+    color: #00e676;  /* Bright green for links */
+    font-family: 'Courier New', Courier, monospace;  /* Typewriter-style font */
+    padding: 10px;
+    display: inline-block;
+}
+
+.navbar a:hover {
+    color: #ffffff; /* Change to white on hover for better visibility */
+}
+
+/* Responsive Navbar for smaller screens */
+@media (max-width: 768px) {
+    .navbar a {
+        display: block;  /* Stack the links vertically on smaller screens */
+        text-align: center;
+        padding: 10px 0;
+    }
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: #1b1b1b;  /* Darker shade for sidebar */
+    border-right: 2px solid #00e676;  /* Neon green border */
+    padding: 15px;
+}
+
+.sidebar a {
+    color: #00e676;  /* Match link color */
+}
+
+.sidebar a:hover {
+    background-color: #333;  /* Hover background */
+    color: #ffffff;
+}
+
+/* Responsive Sidebar for mobile */
+@media (max-width: 768px) {
+    .sidebar {
+        border-right: none; /* Remove sidebar border on mobile */
+        border-bottom: 2px solid #00e676;  /* Move the border to the bottom */
+        padding: 10px 0;
+        text-align: center;
+    }
+}
+
+/* Footer styling */
+footer {
+    background-color: #222;  /* Dark footer from Cyborg theme */
+    border-top: 2px solid #00e676;  /* Neon border from Pixl */
+    color: #e6e6e6;
+    padding: 15px;
+    text-align: center;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer {
+        text-align: center;  /* Center footer content on smaller screens */
+    }
+}
+
+/* Code blocks */
+/* Change background color of code blocks to black */
+pre {
+    background-color: black; /* Black background */
+    color: #00e676; /* White text for contrast */
+    padding: 10px; /* Optional: Add some padding */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    overflow-x: auto; /* Optional: Enable horizontal scrolling */
+}
+
+/* Buttons */
+.btn {
+    background-color: #00e676;  /* Pixl inspired neon buttons */
+    color: #2a2a2a;             /* Dark text for contrast */
+    border: none;
+    border-radius: 5px;
+    font-family: 'Courier New', monospace;  /* Typewriter-style font for buttons */
+    padding: 10px 20px;
+}
+
+.btn:hover {
+    background-color: #00cc5c;  /* Darker green on hover */
+    color: #fff;
+}
+
+/* Responsive Buttons */
+@media (max-width: 768px) {
+    .btn {
+        width: 100%;  /* Make buttons full width on smaller screens */
+        padding: 15px;
+    }
+}
+
+/* Tables */
+table {
+    background-color: #2a2a2a;
+    border: 1px solid #00e676;
+    width: 100%;  /* Ensure table takes full width on smaller screens */
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    border: 1px solid #00e676;
+    color: #e6e6e6;
+    font-family: 'Courier New', monospace;  /* Typewriter-style font for tables */
+    text-align: left;
+}
+
+/* Links */
+a {
+    color: #00e676;
+    text-decoration: none;
+    font-family: 'Courier New', monospace;  /* Typewriter-style font for links */
+}
+
+a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Responsive layout for larger screens */
+@media (min-width: 1024px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1, h2, h3 {
+        font-size: larger;
+    }
+
+    .navbar a {
+        padding: 15px;
+    }
+}
+
+/* Jumbotron Styling */
+.jumbotron {
+    background-color: black;  /* Dark background */
+    color: #ffffff;          /* White text */
+    padding: 30px;
+    border: 3px solid red;   /* Red border */
+    border-radius: 10px;     /* Rounded corners */
+    margin: 0 auto 30px auto; /* Center the jumbotron and space below */
+    font-family: 'Courier New', monospace;  /* Typewriter-style font */
+    text-align: center;      /* Center the text */
+    max-width: 800px;        /* Set maximum width */
+    width: 90%;              /* Ensure responsive width */
+}
+
+
+
+/* Fixed 6x6 Grid for logos */
+.logo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Fixed 6 columns */
+    gap: 50px; /* Adjust spacing between logos */
+    justify-items: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+/* Individual logo styling */
+.logo img {
+    width: 65px; /* Adjust width to suit your design */
+    height: auto;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}

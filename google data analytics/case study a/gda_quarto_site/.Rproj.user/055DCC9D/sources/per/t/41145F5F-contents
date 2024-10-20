@@ -1,0 +1,15 @@
+---
+title: "Cyclistic bike-share analysis case study"
+subtitle: "Google Data Analytics: Case Study 1"
+author: "Suhas. P. K"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    default_style: "dark"
+    downcute_theme: "chaos"
+---
+
+# Introduction
+
+

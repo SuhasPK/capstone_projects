@@ -1,0 +1,37 @@
+---
+title: "Cyclist Bike Share 2020 Data Analysis"
+subtitle: "Google data Analytics Professional Certificate Capstone Project"
+author: "Suhas. P. K"
+
+---
+
+
+<div class="jumbotron" style="background-color:#222; color:#00e676; padding: 30px; border-radius: 10px;">
+<h2>Preface</h2>  
+This site serves as a comprehensive record of the data analysis techniques learned and applied throughout the Google Data Analytics course. For this project, I will be using **SQL**, **R**, and **Tableau**. While each of these tools is powerful enough to perform a complete data analysis independently, they each offer unique advantages and limitations.
+
+The documentation is structured to showcase the bike share data analysis conducted using these tools. Each tool has its own dedicated page, where I explain the core concepts learned during the course and demonstrate their practical implementation.
+
+<a class="btn btn-lg" href="sql_page.qmd" role="button" style="background-color: #000; color: #fff; border: 2px solid #fff;">
+    <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" width="64px" height="64px" alt="mysql">
+</a>
+<a class="btn btn-lg" href="r_page.qmd" role="button" style="background-color: #000; color: #fff; border: 2px solid #fff;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/R_logo.svg/724px-R_logo.svg.png?20240131042527" width="64px" height="64px" alt="r">
+</a>
+<a class="btn btn-lg" href="%" role="button" style="background-color: #000; color: #fff; border: 2px solid #fff;">
+    <img src="https://vectorwiki.com/images/wbGV8__tableau-software.svg" width="64px" height="64px" alt="tableau">
+</a>
+<a class="btn btn-lg" href="%" role="button" style="background-color: #000; color: #fff; border: 2px solid #fff;">
+    <img src="https://raw.githubusercontent.com/rstudio/hex-stickers/2b7523c5f8198c98c270c2a7489cbcf67d190cea/SVG/quarto.svg" width="64px" height="64px" alt="quarto">
+</a>
+
+
+</div>
+
+<div style="text-align: center;" >
+  <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2f07ef87-91d9-4763-917c-1640cfd73955" data-share-badge-host="https://www.credly.com" ></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
+</div>
+
+
+
+

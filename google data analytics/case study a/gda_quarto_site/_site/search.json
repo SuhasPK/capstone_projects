@@ -1,0 +1,93 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "",
+    "text": "Preface\n\nThis site serves as a comprehensive record of the data analysis techniques learned and applied throughout the Google Data Analytics course. For this project, I will be using SQL, R, and Tableau. While each of these tools is powerful enough to perform a complete data analysis independently, they each offer unique advantages and limitations.\nThe documentation is structured to showcase the bike share data analysis conducted using these tools. Each tool has its own dedicated page, where I explain the core concepts learned during the course and demonstrate their practical implementation."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "project_details.html",
+    "href": "project_details.html",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "",
+    "text": "Introduction\nIntroduction Welcome to the Cyclistic bike-share analysis case study! In this case study, you will perform many real-world tasks of a junior data analyst. You will work for a fictional company, Cyclistic, and meet different characters and team members. In order to answer the key business questions, you will follow the steps of the data analysis process: ask, prepare, process, analyze, share, and act.\nScenario\nYou are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations."
+  },
+  {
+    "objectID": "project_details.html#introduction",
+    "href": "project_details.html#introduction",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nWelcome to the Cyclistic bike-share analysis case study! In this case study, you will perform many real-world tasks of a junior data analyst. You will work for a fictional company, Cyclistic, and meet different characters and team members. In order to answer the key business questions, you will follow the steps of the data analysis process: ask, prepare, process, analyze, share, and act."
+  },
+  {
+    "objectID": "project_details.html#scenario",
+    "href": "project_details.html#scenario",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Scenario",
+    "text": "Scenario\nYou are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director of marketing believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. But first, Cyclistic executives must approve your recommendations, so they must be backed up with compelling data insights and professional data visualizations."
+  },
+  {
+    "objectID": "project_details.html#characters-and-teams",
+    "href": "project_details.html#characters-and-teams",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Characters and teams",
+    "text": "Characters and teams\n\nCyclistic: A bike-share program that features more than 5,800 bicycles and 600 docking stations. Cyclistic sets itself apart by also offering reclining bikes, hand tricycles, and cargo bikes, making bike-share more inclusive to people with disabilities and riders who can’t use a standard two-wheeled bike. The majority of riders opt for traditional bikes; about 8% of riders use the assistive options. Cyclistic users are more likely to ride for leisure, but about 30% use them to commute to work each day.\nLily Moreno: The director of marketing and your manager. Moreno is responsible for the development of campaigns and initiatives to promote the bike-share program. These may include email, social media, and other channels.\nCyclistic marketing analytics team: A team of data analysts who are responsible for collecting, analyzing, and reporting data that helps guide Cyclistic marketing strategy. You joined this team six months ago and have been busy learning about Cyclistic’s mission and business goals — as well as how you, as a junior data analyst, can help Cyclistic achieve them.\nCyclistic executive team: The notoriously detail-oriented executive team will decide whether to approve the recommended marketing program."
+  },
+  {
+    "objectID": "project_details.html#about-the-company",
+    "href": "project_details.html#about-the-company",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "About the company",
+    "text": "About the company\nIn 2016, Cyclistic launched a successful bike-share offering. Since then, the program has grown to a fleet of 5,824 bicycles that are geotracked and locked into a network of 692 stations across Chicago. The bikes can be unlocked from one station and returned to any other station in the system anytime. Until now, Cyclistic’s marketing strategy relied on building general awareness and appealing to broad consumer segments.\nOne approach that helped make these things possible was the flexibility of its pricing plans: single-ride passes, full-day passes, and annual memberships. Customers who purchase single-ride or full-day passes are referred to as casual riders. Customers who purchase annual memberships are Cyclistic members.\nCyclistic’s finance analysts have concluded that annual members are much more profitable than casual riders. Although the pricing flexibility helps Cyclistic attract more customers, Moreno believes that maximizing the number of annual members will be key to future growth. Rather than creating a marketing campaign that targets all-new customers, Moreno believes there is a very good chance to convert casual riders into members. She notes that casual riders are already aware of the Cyclistic program and have chosen Cyclistic for their mobility needs.\nMoreno has set a clear goal: Design marketing strategies aimed at converting casual riders into annual members. In order to do that, however, the marketing analyst team needs to better understand how annual members and casual riders differ, why casual riders would buy a membership, and how digital media could affect their marketing tactics. Moreno and her team are interested in analyzing the Cyclistic historical bike trip data to identify trends."
+  },
+  {
+    "objectID": "project_details.html#ask",
+    "href": "project_details.html#ask",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Ask",
+    "text": "Ask\nThree questions will guide the future marketing program:\n\nHow do annual members and casual riders use Cyclistic bikes differently?\nWhy would casual riders buy Cyclistic annual memberships?\nHow can Cyclistic use digital media to influence casual riders to become members?\n\nMoreno has assigned you the first question to answer: How do annual members and casual riders use Cyclistic bikes differently?\nYou will produce a report with the following deliverables:\n\nA clear statement of the business task\nA description of all data sources used\nDocumentation of any cleaning or manipulation of data\nA summary of your analysis\nSupporting visualizations and key findings\nYour top three recommendations based on your analysis"
+  },
+  {
+    "objectID": "project_details.html#prepare",
+    "href": "project_details.html#prepare",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Prepare",
+    "text": "Prepare\nYou will use Cyclistic’s historical trip data to analyze and identify trends. Download the Cyclistic trip data here. (Note: The datasets have a different name because Cyclistic is a fictional company. For the purposes of this case study, the datasets are appropriate and will enable you to answer the business questions. The data has been made available by Motivate International Inc. under this license.)\nYou can choose to work with an entire year of data, or just one quarter of a year. If you are working in Google Sheets, there are some files that might be too large to view. This is public data that you can use to explore how different customer types are using Cyclistic bikes. But note that data-privacy issues prohibit you from using riders’ personally identifiable information. This means that you won’t be able to connect pass purchases to credit card numbers to determine if casual riders live in the Cyclistic service area or if they have purchased multiple single passes."
+  },
+  {
+    "objectID": "project_details.html#process",
+    "href": "project_details.html#process",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Process",
+    "text": "Process\nI will be using SQL to process the data. A detailed documentation will be in the SQL page, where I will be explaining the steps and queries that I performed to clean and manipulate the data."
+  },
+  {
+    "objectID": "project_details.html#analyze",
+    "href": "project_details.html#analyze",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Analyze",
+    "text": "Analyze\nAfter processing the data, I will perform some example queries to analyze simple data tables. Later I will be using R, for some advanced analysis and data visualization for data interpretation."
+  },
+  {
+    "objectID": "project_details.html#share",
+    "href": "project_details.html#share",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Share",
+    "text": "Share\nI will be sharing my visualizations and insights using the below applications:\n\nQuarto dashboard: A static dashboard page which will summarize the insights in a compact manner.\nTableau dashboard: The dashboard generated using this application will be both interactive and dynamic. It’s user friendly and easy to create."
+  },
+  {
+    "objectID": "project_details.html#act",
+    "href": "project_details.html#act",
+    "title": "Cyclist Bike Share 2020 Data Analysis",
+    "section": "Act",
+    "text": "Act\nNow that our visualization are live, I will be using slidify, a R-library, to give a formal presentation of my findings, insights, and my top 3 recommendations based on the analysis."
+  }
+]

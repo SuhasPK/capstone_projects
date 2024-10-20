@@ -2,5 +2,305 @@
 title: "Cyclist Bike Share 2020 Data Analysis - SQL"
 subtitle: "Google data Analytics Professional Certificate Capstone Project"
 author: "Suhas. P. K"
-
 ---
+
+## Introduction
+
+For the Google Data Analytics capstone project, data processing and basic analysis were performed on a publicly available bikeshare dataset. Although spreadsheet tools like Google Sheets are commonly recommended for basic cleaning, I opted to utilize SQL for both data processing and analysis. My choice of database management system was MySQL, and I used MySQL Workbench as the graphical interface for querying the database.
+
+This document outlines the steps taken to load, clean, and analyze the bikeshare data using SQL, with sample queries provided throughout. The SQL commands used to process the data and the corresponding output are presented in the form of query results and images.
+
+------------------------------------------------------------------------
+
+### MySQL Database Setup
+
+The dataset used in this analysis was first stored in a MySQL database server. I created a schema called gda to hold the tables necessary for this project.
+
+1.  Database Server: MySQL
+
+2.  Text Editor: MySQL Workbench
+
+3.  Schema: `gda`
+
+4.  Table: `bikeshare2020`
+
+The dataset was imported into a table named bikeshare20202. This table contains key attributes such as `ride_id`, `rideable_type`, `started_at`, `ended_at`, `start_station_name`, `end_station_name`, `start_lat`, `start_lng`, `end_lat`, `end_lng`, and `member_casual`.
+
+------------------------------------------------------------------------
+
+#### To check the data type
+
+```         
+/* Check the data type */
+DESCRIBE gda.bikeshare2020;
+```
+
+| Field                | Type   | Null | Key | Default | Extra |
+|----------------------|--------|------|-----|---------|-------|
+| `ride_id`            | text   | Yes  |     | Null    |       |
+| `rideable_type`      | text   | Yes  |     | Null    |       |
+| `started_at`         | text   | Yes  |     | Null    |       |
+| `ended_at`           | text   | Yes  |     | Null    |       |
+| `start_station_name` | text   | Yes  |     | Null    |       |
+| `start_station_id`   | int    | Yes  |     | Null    |       |
+| `end_station_name`   | text   | Yes  |     | Null    |       |
+| `end_station_id`     | int    | Yes  |     | Null    |       |
+| `start_lat`          | double | Yes  |     | Null    |       |
+| `start_lng`          | double | Yes  |     | Null    |       |
+| `end_lat`            | double | Yes  |     | Null    |       |
+| `end_lng`            | double | Yes  |     | Null    |       |
+| `member_casual`      | text   | Yes  |     | Null    |       |
+
+------------------------------------------------------------------------
+
+#### To inspect the data
+
+```         
+SELECT * FROM gda.bikeshare2020;
+```
+
+------------------------------------------------------------------------
+
+#### To check the total number of rows
+
+```         
+SELECT COUNT(*) FROM gda.bikeshare2020;
+```
+
+------------------------------------------------------------------------
+
+#### To check for the NULL values
+
+```         
+SELECT 
+    COUNT(*) AS total_rows,
+    SUM( CASE WHEN started_at IS NULL THEN 1 ELSE 0 END) AS started_at_nulls,
+    SUM( CASE WHEN ended_at IS NULL THEN 1 ELSE 0 END) AS ended_at_nulls,
+    SUM( CASE WHEN member_casual IS NULL THEN 1 ELSE 0 END) AS member_casual_nulls
+FROM gda.bikeshare2020;
+```
+
+------------------------------------------------------------------------
+
+#### Change the data type of `started_at` & `ended_at` to `DATETIME`
+
+```         
+ALTER TABLE gda.bikeshare2020 
+MODIFY COLUMN started_at DATETIME,
+MODIFY COLUMN ended_at DATETIME;
+```
+
+In workbench, the above query would throw error id: 1292 ('Incorrect datetime value'). To change the datetime format use,
+
+```         
+/* testing the conversion */
+SELECT 
+    started_at, 
+    STR_TO_DATE(started_at, '%d-%m-%Y %H:%i') AS converted_start 
+FROM gda.bikeshare2020 
+LIMIT 10;
+```
+
+To update the whole table, turn off the `safe_update_mode` in the workbench, or use this query format,
+
+```         
+ET SQL_SAFE_UPDATES = 0; /* turns off the safe_update_mode*/
+UPDATE gda.bikeshare2020
+SET started_at = STR_TO_DATE(started_at, '%d-%m-%Y %H:%i'),
+    ended_at = STR_TO_DATE(ended_at, '%d-%m-%Y %H:%i')
+WHERE ride_id IS NOT NULL;
+SET SQL_SAFE_UPDATES = 1; /* turns on the safe_update_mode*/
+```
+
+To modify the data type,
+
+```         
+ALTER TABLE gda.bikeshare2020 
+MODIFY COLUMN started_at DATETIME,
+MODIFY COLUMN ended_at DATETIME;
+```
+
+Now, check the data types.
+
+```         
+DESCRIBE gda.bikeshare2020;
+```
+
+| Field                | Type     | Null | Key | Default | Extra |
+|----------------------|----------|------|-----|---------|-------|
+| `ride_id`            | text     | Yes  |     | Null    |       |
+| `rideable_type`      | text     | Yes  |     | Null    |       |
+| `started_at`         | datetime | Yes  |     | Null    |       |
+| `ended_at`           | datetime | Yes  |     | Null    |       |
+| `start_station_name` | text     | Yes  |     | Null    |       |
+| `start_station_id`   | int      | Yes  |     | Null    |       |
+| `end_station_name`   | text     | Yes  |     | Null    |       |
+| `end_station_id`     | int      | Yes  |     | Null    |       |
+| `start_lat`          | double   | Yes  |     | Null    |       |
+| `start_lng`          | double   | Yes  |     | Null    |       |
+| `end_lat`            | double   | Yes  |     | Null    |       |
+| `end_lng`            | double   | Yes  |     | Null    |       |
+| `member_casual`      | text     | Yes  |     | Null    |       |
+
+------------------------------------------------------------------------
+
+#### Handling NULL data
+
+```         
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM gda.bikeshare2020 
+WHERE started_at IS NULL OR ended_at IS NULL OR member_casual IS NULL;
+SET SQL_SAFE_UPDATES = 1;
+```
+
+------------------------------------------------------------------------
+
+#### Adding more features
+
+To find the `trip_duration`
+
+```         
+ALTER TABLE gda.bikeshare2020 ADD COLUMN trip_duration INT;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE gda.bikeshare2020 
+SET trip_duration = TIMESTAMPDIFF(MINUTE, started_at, ended_at);
+SET SQL_SAFE_UPDATES = 0;
+SELECT * FROM gda.bikeshare2020 LIMIT 10;
+```
+
+To find the `day_of_week`
+
+```         
+ALTER TABLE gda.bikeshare2020 ADD COLUMN day_of_week VARCHAR(10);
+SET SQL_SAFE_UPDATES = 0;
+UPDATE gda.bikeshare2020 
+SET day_of_week = DAYNAME(started_at);
+SET SQL_SAFE_UPDATES = 1;
+SELECT * FROM gda.bikeshare2020 LIMIT 10;
+```
+
+------------------------------------------------------------------------
+
+### Basic Queries
+
+#### To check the data
+
+```         
+SELECT * FROM gda.bikeshare2020 LIMIT 10;
+```
+
+------------------------------------------------------------------------
+
+#### To find the average trip based on the `member_causal`
+
+```         
+SELECT member_casual, AVG(trip_duration) AS avg_trip_duration
+FROM gda.bikeshare2020
+GROUP BY member_casual;
+```
+
+![](images/bikeshare%20images/average%20trip%20duration.png){fig-align="center"}
+
+#### To find the `day_of_week`
+
+```         
+SELECT member_casual, day_of_week, COUNT(*) AS rides_count
+FROM gda.bikeshare2020
+GROUP BY member_casual, day_of_week
+ORDER BY member_casual, rides_count DESC;
+```
+
+![](images/bikeshare%20images/week%20of%20the%20day.png){fig-align="center"}
+
+#### To find the `hour_of_day`
+
+```         
+SELECT member_casual, HOUR(started_at) AS hour_of_day, COUNT(*) AS ride_count
+FROM gda.bikeshare2020
+GROUP BY member_casual, hour_of_day
+ORDER BY member_casual, hour_of_day;
+```
+
+![](images/bikeshare%20images/hour%20of%20the%20day.png){fig-align="center"}
+
+#### Trip duration table
+
+```         
+
+SELECT member_casual, 
+       CASE 
+           WHEN trip_duration <= 10 THEN '<= 10 min'
+           WHEN trip_duration BETWEEN 11 AND 20 THEN '11-20 min'
+           WHEN trip_duration BETWEEN 21 AND 30 THEN '21-30 min'
+           WHEN trip_duration BETWEEN 31 AND 60 THEN '31-60 min'
+           ELSE '> 60 min'
+       END AS duration_range, 
+       COUNT(*) AS ride_count
+FROM gda.bikeshare2020
+GROUP BY member_casual, duration_range
+ORDER BY member_casual, duration_range;
+```
+
+![](images/bikeshare%20images/duration%20range.png){fig-align="center"}
+
+#### Popular `start_station_name`
+
+```         
+SELECT member_casual, start_station_name, COUNT(*) AS ride_count
+FROM gda.bikeshare2020
+GROUP BY member_casual, start_station_name
+ORDER BY ride_count DESC
+LIMIT 10;
+```
+
+![](images/bikeshare%20images/popular%20start%20station%20name.png){fig-align="center"}
+
+#### Popular `end_station_name`
+
+```         
+SELECT member_casual, end_station_name, COUNT(*) AS ride_count
+FROM gda.bikeshare2020
+GROUP BY member_casual, end_station_name
+ORDER BY ride_count DESC
+LIMIT 10;
+```
+
+![](images/bikeshare%20images/popular%20end%20station%20name.png){fig-align="center"}
+
+#### To calculate the distance travelled (in kilometers)
+
+```         
+SELECT ride_id, 
+    member_casual,
+    111.111 * DEGREES(ACOS(COS(RADIANS(start_lat))
+                 * COS(RADIANS(end_lat))
+                 * COS(RADIANS(start_lng) - RADIANS(end_lng))
+                 + SIN(RADIANS(start_lat))
+                 * SIN(RADIANS(end_lat)))) AS distance_km
+FROM gda.bikeshare2020;
+```
+
+![](images/bikeshare%20images/distance%20travelled%20in%20km.png){fig-align="center"}
+
+#### To calculate the average distance travelled (in kilometers)
+
+```         
+SELECT member_casual, AVG(distance_km) AS avg_distance_km
+FROM (SELECT ride_id, 
+             member_casual,
+             111.111 * DEGREES(ACOS(COS(RADIANS(start_lat))
+                          * COS(RADIANS(end_lat))
+                          * COS(RADIANS(start_lng) - RADIANS(end_lng))
+                          + SIN(RADIANS(start_lat))
+                          * SIN(RADIANS(end_lat)))) AS distance_km
+      FROM gda.bikeshare2020) AS distances
+GROUP BY member_casual;
+```
+
+![](images/bikeshare%20images/avg%20distance%20travelled.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+Based on the above queries I can understand the a fair bit of information on how the casual riders and annual members tend to use the cyclist bike share. 
+
+For further analysis, I will use `R` to get more insight and informative visualizations.

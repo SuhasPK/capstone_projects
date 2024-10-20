@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: 48b4c538-08cf-4df0-ac57-d04d3fcc0b8b
+      url: 'https://suhaspk.quarto.pub/gda-bikeshare2020-data-analysis'
